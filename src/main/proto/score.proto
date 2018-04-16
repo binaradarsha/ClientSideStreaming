@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package demo;
+
+option java_multiple_files = true;
+option java_package = "com.grpc.demo";
+option java_outer_classname = "HelloProto";
+option objc_class_prefix = "STD";
+
+service Score {
+    rpc getScore (stream ScoreRequest) returns (stream ScoreResponse) {}
+}
+
+message ScoreRequest {
+    string item = 1;
+}
+
+message ScoreResponse {
+    int32 score  = 1;
+}
